@@ -1,19 +1,24 @@
+# train_model.py
 import pandas as pd
-import numpy as np
-import pickle
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
+import pickle
 
-# Sample data load
-df = pd.read_csv("your_data.csv")  # replace with your actual data file
+# Sample dummy data (use your actual dataset here)
+data = {
+    'area': [1000, 1500, 1800],
+    'bedrooms': [2, 3, 4],
+    'bathrooms': [1, 2, 2],
+    'price': [3000000, 4500000, 5000000]
+}
+df = pd.DataFrame(data)
 
-X = df[['area', 'bedrooms', 'bathrooms']]  # your feature columns
-y = df['price']                            # target column
+X = df[['area', 'bedrooms', 'bathrooms']]
+y = df['price']
 
 model = LinearRegression()
 model.fit(X, y)
 
-# ✅ Save the model
-with open('model.pkl', 'wb') as f:
+with open("model.pkl", "wb") as f:
     pickle.dump(model, f)
 
+print("✅ Model saved as model.pkl")
