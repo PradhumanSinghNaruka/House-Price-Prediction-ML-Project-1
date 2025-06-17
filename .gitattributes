@@ -1,0 +1,7 @@
+model.pkl binary
+*.pkl binary
+*.h5 binary
+*.joblib binary
+*.pt binary
+*.onnx binary
+* text=auto
